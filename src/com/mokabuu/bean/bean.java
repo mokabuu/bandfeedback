@@ -29,11 +29,24 @@ public class bean implements Serializable {
 	public String bandname2;
 	public String bandname3;
 	public String bandname4;
+	public String bandname5;
+	public String bandname6;
+	public String bandname7;
+	public String bandname8;
 
 	public String app1;
 	public String app2;
 	public String app3;
 	public String app4;
+	public String app5;
+	public String app6;
+	public String app7;
+	public String app8;
+	
+	public int tanto1;
+	public int tanto2;
+	public int tanto3;
+	public int tanto4;
 	
 	FacesContext context = FacesContext.getCurrentInstance();
 
@@ -79,6 +92,114 @@ public class bean implements Serializable {
 
 	public void setBandname4(String bandname4) {
 		this.bandname4 = bandname4;
+	}
+
+	public String getBandname5() {
+		if(bandname5 == null){
+			bandname5 = "空";
+		}
+		return bandname5;
+	}
+
+	public void setBandname5(String bandname5) {
+		this.bandname5 = bandname5;
+	}
+
+	public String getBandname6() {
+		if(bandname6 == null){
+			bandname6 = "空";
+		}
+		return bandname6;
+	}
+
+	public void setBandname6(String bandname6) {
+		this.bandname6 = bandname6;
+	}
+
+	public String getBandname7() {
+		if(bandname7 == null){
+			bandname7 = "空";
+		}
+		return bandname7;
+	}
+
+	public void setBandname7(String bandname7) {
+		this.bandname7 = bandname7;
+	}
+
+	public String getBandname8() {
+		if(bandname8 == null){
+			bandname8 = "空";
+		}
+		return bandname8;
+	}
+
+	public void setBandname8(String bandname8) {
+		this.bandname8 = bandname8;
+	}
+
+	public String getApp5() {
+		return app5;
+	}
+
+	public void setApp5(String app5) {
+		this.app5 = app5;
+	}
+
+	public String getApp6() {
+		return app6;
+	}
+
+	public void setApp6(String app6) {
+		this.app6 = app6;
+	}
+
+	public String getApp7() {
+		return app7;
+	}
+
+	public void setApp7(String app7) {
+		this.app7 = app7;
+	}
+
+	public String getApp8() {
+		return app8;
+	}
+
+	public void setApp8(String app8) {
+		this.app8 = app8;
+	}
+
+	public int getTanto1() {
+		return tanto1;
+	}
+
+	public void setTanto1(int tanto1) {
+		this.tanto1 = tanto1;
+	}
+
+	public int getTanto2() {
+		return tanto2;
+	}
+
+	public void setTanto2(int tanto2) {
+		this.tanto2 = tanto2;
+	}
+
+	public int getTanto3() {
+		return tanto3;
+	}
+
+	public void setTanto3(int tanto3) {
+		this.tanto3 = tanto3;
+	}
+
+	public int getTanto4() {
+		return tanto4;
+	}
+
+	public void setTanto4(int tanto4) {
+		this.tanto4 = tanto4;
 	}
 
 	public String getApp1() {
@@ -134,19 +255,35 @@ public class bean implements Serializable {
 	}
 
 	public void submit1() {
-		appFeedback(app1, 1);
+		if(tanto1 == 1){
+			appFeedback(app1, 1);
+		}else if(tanto1 == 2){
+			appFeedback(app1, 5);
+		}
 	}
 
 	public void submit2() {
-		appFeedback(app2, 2);
+		if(tanto2 == 1){
+			appFeedback(app2, 2);
+		}else if(tanto2 == 2){
+			appFeedback(app2, 6);
+		}
 	}
 
 	public void submit3() {
-		appFeedback(app3, 3);
+		if(tanto3 == 1){
+			appFeedback(app3, 3);
+		}else if(tanto3 == 2){
+			appFeedback(app3, 7);
+		}
 	}
 
 	public void submit4() {
-		appFeedback(app4, 4);
+		if(tanto4 == 1){
+			appFeedback(app4, 4);
+		}else if(tanto4 == 2){
+			appFeedback(app4, 8);
+		}
 	}
 	
 	private void appFeedback(String appname, int timeline) {
@@ -216,6 +353,18 @@ public class bean implements Serializable {
 					break;
 				case 4:
 					bandname4 = rs.getString("bandname");
+					break;
+				case 5:
+					bandname5 = rs.getString("bandname");
+					break;
+				case 6:
+					bandname6 = rs.getString("bandname");
+					break;
+				case 7:
+					bandname7 = rs.getString("bandname");
+					break;
+				case 8:
+					bandname8 = rs.getString("bandname");
 					break;
 				}
 			}

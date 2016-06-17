@@ -9,19 +9,20 @@
 		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 </h:head>
 <h:body>
-	 <f:metadata>
-            <f:viewAction action="#{bean.init()}" update=":info" />
-        </f:metadata>
+	<f:metadata>
+		<f:viewAction action="#{bean.init()}" update=":info" />
+	</f:metadata>
 	<h:form id="info">
 		<p:growl id="growl" autoUpdate="true" />
 		<p:panelGrid style="margin:20px">
 			<f:facet name="header">
 				<p:row>
-					<p:column colspan="7">バンドフィードバック予約表</p:column>
+					<p:column colspan="10">バンドフィードバック予約表</p:column>
 				</p:row>
 				<p:row>
 					<p:column colspan="3">時間帯</p:column>
-					<p:column colspan="3">バンド名</p:column>
+					<p:column colspan="3">あいら</p:column>
+					<p:column colspan="3">つねこー</p:column>
 					<p:column colspan="1"></p:column>
 				</p:row>
 			</f:facet>
@@ -29,6 +30,9 @@
 				<p:column colspan="3">13:00 - 13:30</p:column>
 				<p:column colspan="3">
 					<h:outputText value="#{bean.bandname1}" />
+				</p:column>
+				<p:column colspan="3">
+					<h:outputText value="#{bean.bandname5}" />
 				</p:column>
 				<p:column colspan="1">
 					<p:commandButton value="予約" onclick="PF('dlg1').show();" />
@@ -39,6 +43,9 @@
 				<p:column colspan="3">
 					<h:outputText value="#{bean.bandname2}" />
 				</p:column>
+				<p:column colspan="3">
+					<h:outputText value="#{bean.bandname6}" />
+				</p:column>
 				<p:column colspan="1">
 					<p:commandButton value="予約" onclick="PF('dlg2').show();" />
 				</p:column>
@@ -48,6 +55,9 @@
 				<p:column colspan="3">
 					<h:outputText value="#{bean.bandname3}" />
 				</p:column>
+				<p:column colspan="3">
+					<h:outputText value="#{bean.bandname7}" />
+				</p:column>
 				<p:column colspan="1">
 					<p:commandButton value="予約" onclick="PF('dlg3').show();" />
 				</p:column>
@@ -56,6 +66,9 @@
 				<p:column colspan="3">14:30 - 15:00</p:column>
 				<p:column colspan="3">
 					<h:outputText value="#{bean.bandname4}" />
+				</p:column>
+				<p:column colspan="3">
+					<h:outputText value="#{bean.bandname8}" />
 				</p:column>
 				<p:column colspan="1">
 					<p:commandButton value="予約" onclick="PF('dlg4').show();" />
@@ -69,31 +82,55 @@
 			<p:panelGrid columns="3">
 				<h:outputText value="バンド名" />
 				<p:inputText value="#{bean.app1}" />
-				<p:commandButton value="予約" actionListener="#{bean.submit1}" update=":info" onclick="PF('dlg1').destroy();" />
+				<p:selectOneMenu id="console1" value="#{bean.tanto1}"
+					style="width:125px">
+					<f:selectItem itemLabel="あいら" itemValue="1" />
+					<f:selectItem itemLabel="つねこー" itemValue="2" />
+				</p:selectOneMenu>
+				<p:commandButton value="予約" actionListener="#{bean.submit1}"
+					update=":info" onclick="PF('dlg1').destroy();" />
 			</p:panelGrid>
 		</p:dialog>
-		
+
 		<p:dialog header="13:30 - 14:00" widgetVar="dlg2">
 			<p:panelGrid columns="3">
 				<h:outputText value="バンド名" />
 				<p:inputText value="#{bean.app2}" />
-			<p:commandButton value="予約" actionListener="#{bean.submit2}" update=":info" onclick="PF('dlg2').destroy();" />
+				<p:selectOneMenu id="console2" value="#{bean.tanto2}"
+					style="width:125px">
+					<f:selectItem itemLabel="あいら" itemValue="1" />
+					<f:selectItem itemLabel="つねこー" itemValue="2" />
+				</p:selectOneMenu>
+				<p:commandButton value="予約" actionListener="#{bean.submit2}"
+					update=":info" onclick="PF('dlg2').destroy();" />
 			</p:panelGrid>
 		</p:dialog>
-		
+
 		<p:dialog header="14:00 - 14:30" widgetVar="dlg3">
 			<p:panelGrid columns="3">
 				<h:outputText value="バンド名" />
 				<p:inputText value="#{bean.app3}" />
-			<p:commandButton value="予約" actionListener="#{bean.submit3}" update=":info" onclick="PF('dlg3').destroy();" />
+				<p:selectOneMenu id="console3" value="#{bean.tanto3}"
+					style="width:125px">
+					<f:selectItem itemLabel="あいら" itemValue="1" />
+					<f:selectItem itemLabel="つねこー" itemValue="2" />
+				</p:selectOneMenu>
+				<p:commandButton value="予約" actionListener="#{bean.submit3}"
+					update=":info" onclick="PF('dlg3').destroy();" />
 			</p:panelGrid>
 		</p:dialog>
-		
+
 		<p:dialog header="14:30 - 15:00" widgetVar="dlg4">
 			<p:panelGrid columns="3">
 				<h:outputText value="バンド名" />
 				<p:inputText value="#{bean.app4}" />
-			<p:commandButton value="予約" actionListener="#{bean.submit4}" update=":info" onclick="PF('dlg4').destroy();" />
+				<p:selectOneMenu id="console4" value="#{bean.tanto4}"
+					style="width:125px">
+					<f:selectItem itemLabel="あいら" itemValue="1" />
+					<f:selectItem itemLabel="つねこー" itemValue="2" />
+				</p:selectOneMenu>
+				<p:commandButton value="予約" actionListener="#{bean.submit4}"
+					update=":info" onclick="PF('dlg4').destroy();" />
 			</p:panelGrid>
 		</p:dialog>
 	</h:form>
